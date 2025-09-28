@@ -8,12 +8,12 @@
 - [Future Enhancements](#enhancements)
 
 ## Background
-This assignment focuses on designing and implementing a cloud infrastructure for a banking application. The application support secure and efficient CRUD operations on a banking account.
+This assignment focuses on designing and implementing a cloud infrastructure for a banking application. The application provides support and efficient CRUD operations on a banking account.
 
 The customer must be able to access the bank account operations via three endpoints,
 
 * GET endpoint to get the current balance of an account.
-* POST endpoint to deposit money from an account.
+* POST endpoint to deposit money to an account.
 * POST endpoint to withdraw money from an account.
 
 ## Implementation Overview
@@ -27,7 +27,7 @@ There are two Github workflows,
 
 The setup was separated into two Github workflows to improve manageability and maintenance.
 
-Next section high level architecture will be discussed.
+The next section will discuss the high-level architecture.
 
 ## High-level architecture
 ![Architecture Diagram](resources/architecture-diagram.png)
@@ -38,11 +38,11 @@ Next section high level architecture will be discussed.
 
 This application is deployed in ap-southeast-1 region.
 
-According to the above ***Figure 1*** the User will be accessing the endpoints to access banking application from public internet. The request will flow to the VPC via Internet Gateway. Inside the VPC, two subnets exists,
+According to the above ***Figure 1***, the User will be accessing the endpoints to access banking application from public internet. User is authenticated before sending the request. Authentication will be handled by Secrets Manager.  Afterwards, the request will traverse to the VPC via Internet Gateway. There are two subnets inside the VPC,
 * Public Subnet
 * Private Subnet
 
-Only the public subnet have the access to the public internet. For high availability we have set up 3 Availability Zones(AZs) by adhering to the design best practices mentioned in AWS Well Architected Framework. 
+Only the public subnet have the access to the public internet. Three availability zones have been setup to improve high availability by adhering to the design best practices mentioned in AWS Well Architected Framework. 
 
 Inside the public subnet we have created Application Load Balancer(ALB) to route the traffic to the private subnet which the web application is deployed. Without the Load Balancer the user request would not traverse to the application.
 
@@ -64,14 +64,13 @@ All the information will be monitored and logged across the below services,
 * VPC Flow logs – Captures IP traffic data from/to network interfaces
 
 ## Limitations
-1.	The web application currently does not have authentication and authorization enabled. This feature will be enabled in the next phase once we purchase the custom domain. 
-2.	This web application is only deployed to Development environment only.
-3.  Currently, application does not support HTTPS workloads.
-4.  Managed Github runners have been used. Therefore, cannot force to install specific packages which will fix the security scan vulnerabilities in trivy. 
+1.	This web application is only deployed to Development environment only.
+2.  Currently, application does not support HTTPS workloads.
+3.  Managed Github runners have been used. Therefore, cannot force to install specific packages which will fix the security scan vulnerabilities in trivy. 
     Due to this reason we have ignored the trivy scan violations in the web-app pipeline.
 
 ## Future Improvements
-1.	Add authentication and authorization for the web application using Cognito or OIDC
+1.	Upgrade authentication and authorization for the web application using Cognito or OIDC
 2.	Add HTTPS for the ALB for secure traffic
 3.	Analyse the possibility of moving the endpoints to API Gateway
 4.	Multi-environment deployment
