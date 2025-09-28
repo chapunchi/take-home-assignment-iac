@@ -75,6 +75,7 @@ All the information will be monitored and logged across the below services,
 3.	Analyse the possibility of moving the endpoints to API Gateway
 4.	Multi-environment deployment
 5.  Fix the security scans and vulnerabilities once Github runners setup.
+6.  Dynamically rotate Secrets in Secret Manager
 
  
 
