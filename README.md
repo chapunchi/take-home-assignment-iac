@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Background](#background)
-- [Implementation Overview](#Implementation Overview)
+- [Implementation Overview](#implementation)
 - [High-level architecture](#architecture)
 - [Limitations](#limitations)
 - [Future Enhancements](#enhancements)
