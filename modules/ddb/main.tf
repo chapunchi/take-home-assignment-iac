@@ -9,11 +9,12 @@ resource "aws_dynamodb_table_item" "table_item" {
   item = <<ITEM
 {
   "account_id": {"S": "8888888"},
-  "current_balance": {"N": "11111"},
-  "first_name": {"S": "22222"},
-  "last_name": {"S": "33333"},
-  "daily_limit": {"N": "44444"},
-  "withdraw_flag": {"S": "Y"}
+  "current_balance": {"N": "1000"},
+  "first_name": {"S": "fname"},
+  "last_name": {"S": "lname"},
+  "daily_limit": {"N": "500"},
+  "withdraw_flag": {"S": "Y"},
+  "daily_amount_withdrawn": {"N": "100"}
 }
 ITEM
 }
