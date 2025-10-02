@@ -73,3 +73,8 @@ module "securityhub" {
 module "guardduty" {
   source = "./modules/guardduty"
 }
+
+module "ddb" {
+  source = "./modules/ddb"
+}
+
