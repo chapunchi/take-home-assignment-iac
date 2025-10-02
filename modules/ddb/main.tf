@@ -3,7 +3,7 @@ data "aws_dynamodb_table" "accounts" {
 }
 
 resource "aws_dynamodb_table_item" "table_item" {
-  table_name = data.aws_dynamodb_table.accounts
+  table_name = data.aws_dynamodb_table.accounts.name
   hash_key   = data.aws_dynamodb_table.accounts.hash_key
 
   item = <<ITEM

@@ -33,4 +33,4 @@ jobs:
         run: terraform plan -out=tfplan
 
       - name: Terraform apply
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply  tfplan
