@@ -31,7 +31,7 @@ variable "accounts" {
     {
       account_id      = "99999"
       current_balance = "2399.22"
-      first_name      = "Joel"
+      first_name      = "Jo"
       last_name       = "Simmons"
       daily_limit     = "500"
     }
